@@ -9,7 +9,7 @@ mym('use','webpacs');
 %Captura o tempo atual da CPU
 ti=cputime;
 
-%Nimagens=Número de Imagens
+%Nimagens = Numero de Imagens
 Nimagens=2;
 
 %Leitura das Imagens
@@ -37,13 +37,13 @@ switch(im)
     idExame = info.StudyID
     idImagem = info.SOPInstanceUID
 
-    %Conversão 1
+    %Conversao 1
     W = im2double(imagem);
      mkdir('C:\htdocs\imagensJPG',idExame);
      mkdir('C:\htdocs\imagensDCM',idExame);
     imwrite(imadjust(W), fullfile('C:\htdocs\imagensJPG', num2str(idExame), '1.jpg'), 'jpg');
 	
-	%Preservação dos direitos autorais
+	%Preservando os direitos
 	Nome='XxxXXxxXXxXXX';
 	
     %Armazenamento 1: Armazena os itens comuns e os exclusivos da imagem
@@ -59,7 +59,7 @@ switch(im)
     idExame2 = info.StudyID
     idImagem2 = info.SOPInstanceUID
 
-    %Conversão 2: Armazena apenas os itens exclusivos da imagem
+    %Conversao 2: Armazena apenas os itens exclusivos da imagem
     W = im2double(imagem);
     imwrite(imadjust(W), fullfile('C:\htdocs\imagensJPG', num2str(idExame), '2.jpg'), 'jpg');
 
@@ -71,12 +71,12 @@ switch(im)
         
     end;
 
-%Contador que adiciona mais uma imagem após a verificação
+%Contador que adiciona mais uma imagem apos a verificacao
 jm=im+1;
 
 end;
 
-%Fecha conexão com o banco de dados
+%Fecha conexao com o banco de dados
 mym('close','localhost:3306','root','123456');
 
 %Subtrai o tempo atual do tempo inicial e registra o tempo de para ler
